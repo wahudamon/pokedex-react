@@ -2,7 +2,7 @@ import '../App.css';
 import { useEffect, useState } from 'react';
 import { getAllPokemon } from '../utils/getPokemonList';
 import { 
-  Button, Card, CardText, CardBody,
+  Card, CardText, CardBody,
   CardTitle,
   Row,
   Col, 
@@ -26,11 +26,13 @@ function WildPokemonList() {
         <Row className="mx-5 my-5 g-3">
           {wildPokemon.map(pokemon => (
             <Col sm="3" md="5" lg="3">
-              <Card body className="text-center">
+              <Card body className="text-center" style={{backgroundColor: '#D3D3D3'}}>
                 <CardBody>
                   <CardTitle className="text-capitalize" style={{color: '#000', fontWeight: 'bold'}}><h3>{pokemon.name}</h3></CardTitle>
                   <CardText style={{color: '#000', fontSize: '12pt'}}>This is pokemon.</CardText>
-                  <Button color="danger">Catch!</Button>
+                </CardBody>
+                <CardBody style={{backgroundColor: '#FFFFFF'}}>
+                  <CardText style={{color: '#000', fontSize: '12pt'}}>Owned: 0</CardText>
                 </CardBody>
               </Card>
             </Col>
