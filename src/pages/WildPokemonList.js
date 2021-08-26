@@ -5,7 +5,8 @@ import {
   Card, CardText, CardBody,
   CardTitle,
   Row,
-  Col, 
+  Col,
+  CardImg, 
 } from 'reactstrap';
 
 function WildPokemonList() {
@@ -31,7 +32,7 @@ function WildPokemonList() {
             <Card body className="text-center" style={{backgroundColor: '#949494'}}>
               <CardBody>
                 <CardTitle className="text-capitalize" style={{color: '#FFF', fontSize: '16pt', fontWeight: 'bold'}}>{pokemon.name}</CardTitle>
-                <CardText style={{color: '#FFF', fontSize: '12pt'}}>This is pokemon.</CardText>
+                <CardImg width="100%" src={pokemon.image} alt="Card image cap" />
               </CardBody>
               <CardBody style={{backgroundColor: '#FFFFFF', borderRadius: '15px'}}>
                 <CardText style={{color: '#000', fontSize: '12pt'}}>Owned: 0</CardText>
