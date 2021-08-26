@@ -28,7 +28,7 @@ function WildPokemonList() {
             <Col sm="3" md="5" lg="3">
               <Card body className="text-center" style={{backgroundColor: '#D3D3D3'}}>
                 <CardBody>
-                  <CardTitle className="text-capitalize" style={{color: '#000', fontWeight: 'bold'}}><h3>{pokemon.name}</h3></CardTitle>
+                  <CardTitle className="text-capitalize" style={{color: '#000', fontSize: '16pt', fontWeight: 'bold'}}>{pokemon.name}</CardTitle>
                   <CardText style={{color: '#000', fontSize: '12pt'}}>This is pokemon.</CardText>
                 </CardBody>
                 <CardBody style={{backgroundColor: '#FFFFFF'}}>
