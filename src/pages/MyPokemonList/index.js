@@ -7,7 +7,7 @@ import {
 } from 'reactstrap';
 import { PokemonColors } from '../../components/PokemonColors';
 
-function MyPokemonList() {
+export default function MyPokemonList() {
   return(
     <div className="app">
       <header className="app-header">
@@ -40,5 +40,3 @@ function MyPokemonList() {
     </div>
   )
 }
-
-export default MyPokemonList;

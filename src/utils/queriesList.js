@@ -4,7 +4,7 @@
 // }
 
 export const getAllPokemon = async () => {
-  const pokemonName = await fetching('https://pokeapi.co/api/v2/pokemon-form?limit=10&offset=10');
+  const pokemonName = await fetching('https://pokeapi.co/api/v2/pokemon-form?limit=20&offset=20');
   const pokemonArray = [];
   for(let i = 0; i < pokemonName.results.length; i++) {
     const pokemon = pokemonName.results[i];
@@ -17,6 +17,11 @@ export const getAllPokemon = async () => {
   }
 
   return pokemonArray;
+}
+
+export const getPokemonDetails = async () => {
+  const data = await fetching('https://pokeapi.co/api/v2/pokemon/pikachu');
+  return data;
 }
 
 const fetching = async (url) => {

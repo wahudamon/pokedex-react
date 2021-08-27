@@ -1,6 +1,6 @@
 import '../App.css';
 import { useEffect, useState } from 'react';
-import { getAllPokemon } from '../utils/getPokemonList';
+import { getAllPokemon } from '../utils/queriesList';
 import { 
   Card, CardText, CardBody,
   CardTitle,
@@ -9,7 +9,7 @@ import {
   CardImg, 
 } from 'reactstrap';
 
-function WildPokemonList() {
+export default function WildPokemonList() {
   const [wildPokemon, getWildPokemon] = useState([]);
 
   useEffect(() => {
@@ -44,5 +44,3 @@ function WildPokemonList() {
     </div>
   )
 }
-
-export default WildPokemonList;
