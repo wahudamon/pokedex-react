@@ -18,7 +18,7 @@ export default function NavBar() {
   return (
     <div>
       <Navbar color="#fff" light expand="md">
-        <NavbarBrand className="mx-4" href="/">Pokedex</NavbarBrand>
+        <NavbarBrand className="navbar-brand mx-4" href="/">Pokedex</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
@@ -34,5 +34,3 @@ export default function NavBar() {
     </div>
   )
 }
-
-// export default NavBar;
