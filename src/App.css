@@ -12,12 +12,25 @@
   color: #000;
 }
 
+.details-header {
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .navbar {
   box-shadow: 5px 6px 6px #d3d3d3;
 }
 
 .navbar-brand {
   font-family: 'Pokemon Solid', Verdana, Tahoma, sans-serif;
+}
+
+.banner {
+  width: 100%;
+  height: 80%;
 }
 
 .btn-release {
