@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, CardTitle, Col, Container, Row } from 'reactstrap';
+import { Button, Card, CardBody, CardTitle, Col, Container, Row, Table } from 'reactstrap';
 import '../../App.css';
 import { PokemonColors } from '../../components/PokemonColors';
 
@@ -22,6 +22,29 @@ export default function PokemonDetails() {
           <Col className="type-list-col">
             <Button className="type-badge" style={{backgroundColor: PokemonColors.grass}}>Grass</Button>
             <Button className="type-badge" style={{ backgroundColor: PokemonColors.fire }}>Fire</Button>
+            <Button className="type-badge" style={{ backgroundColor: PokemonColors.water }}>Water</Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col className="type-list-col">
+            <Card body className="text-center mt-3" style={{maxWidth: "500px", maxHeight: "150px", borderRadius: "10px"}}>
+              <CardBody>
+                <Table borderless style={{marginLeft: "10px"}}>
+                  <thead>
+                    <tr>
+                      <th className="table-header">Height</th>
+                      <th className="table-header">Weight</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="table-content">10"</td>
+                      <td className="table-content">130lbs</td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </CardBody>
+            </Card>
           </Col>
         </Row>
       </Container>
