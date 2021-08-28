@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, CardTitle, Col, Container, Row, Table } from 'reactstrap';
+import { Button, Card, CardBody, CardText, CardTitle, Col, Container, ListGroup, ListGroupItem, Progress, Row, Table } from 'reactstrap';
 import '../../App.css';
 import { PokemonColors } from '../../components/PokemonColors';
 
@@ -43,6 +43,41 @@ export default function PokemonDetails() {
                     </tr>
                   </tbody>
                 </Table>
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
+        <Row>
+          <Col className="type-list-col">
+            <Card body className="mt-3" style={{maxWidth: "500px", border: "0"}}>
+              <CardBody>
+                <CardTitle style={{color: "#000", fontSize: "18pt", fontWeight: "bold"}}>Stats</CardTitle>
+                <ListGroup>
+                  <ListGroupItem>
+                    <div style={{color: "black"}}>HP</div>
+                    <Progress value="4" max="5" />
+                  </ListGroupItem>
+                  <ListGroupItem>
+                    <div style={{color: "black"}}>SPEED</div>
+                    <Progress value="2" max="5" />
+                  </ListGroupItem>
+                  <ListGroupItem>
+                    <div style={{color: "black"}}>ATTACK</div>
+                    <Progress value="2" max="5" />
+                  </ListGroupItem>
+                  <ListGroupItem>
+                    <div style={{color: "black"}}>DEFENSE</div>
+                    <Progress value="4" max="5" />
+                  </ListGroupItem>
+                  <ListGroupItem>
+                    <div style={{color: "black"}}>SPECIAL ATTACK</div>
+                    <Progress value="3" max="5" />
+                  </ListGroupItem>
+                  <ListGroupItem>
+                    <div style={{color: "black"}}>SPECIAL DEFENSE</div>
+                    <Progress value="2" max="5" />
+                  </ListGroupItem>
+                </ListGroup>
               </CardBody>
             </Card>
           </Col>
