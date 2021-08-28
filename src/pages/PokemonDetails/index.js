@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, CardText, CardTitle, Col, Container, ListGroup, ListGroupItem, Progress, Row, Table } from 'reactstrap';
+import { Button, Card, CardBody, CardTitle, Col, Container, ListGroup, ListGroupItem, Progress, Row, Table } from 'reactstrap';
 import '../../App.css';
 import { PokemonColors } from '../../components/PokemonColors';
 
@@ -10,12 +10,8 @@ export default function PokemonDetails() {
       </div>
       <Container>
         <Row>
-          <Col>
-            <Card body className="text-center" style={{border: "0"}}>
-              <CardBody>
-                <CardTitle className="text-capitalize" style={{color: "#000", fontSize: "18pt", fontWeight: "bold"}}>ninetales</CardTitle>
-              </CardBody>
-            </Card>
+          <Col className="text-center">
+            <h2 className="my-3 text-capitalize" style={{color: "#000", fontSize: "18pt", fontWeight: "bold"}}>ninetales</h2>
           </Col>
         </Row>
         <Row>
@@ -48,11 +44,18 @@ export default function PokemonDetails() {
           </Col>
         </Row>
         <Row>
+          <Col className="text-center">
+            <p className="my-3" style={{color: "#000", fontSize: "12pt"}}>Owned: 0</p>
+          </Col>
+        </Row>
+        <Row>
           <Col className="type-list-col">
-            <Card body className="mt-3" style={{maxWidth: "500px", border: "0"}}>
+            <Card body style={{maxWidth: "580px", border: "0"}}>
               <CardBody>
-                <CardTitle style={{color: "#000", fontSize: "18pt", fontWeight: "bold"}}>Stats</CardTitle>
                 <ListGroup>
+                  <ListGroupItem>
+                    <CardTitle style={{color: "#000", fontSize: "18pt", fontWeight: "bold"}}>Stats</CardTitle>
+                  </ListGroupItem>
                   <ListGroupItem>
                     <div style={{color: "black"}}>HP</div>
                     <Progress value="4" max="5" />
