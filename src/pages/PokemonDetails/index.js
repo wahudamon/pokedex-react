@@ -19,9 +19,9 @@ export default function PokemonDetails() {
           </Col>
         </Row>
         <Row>
-          <Col sm="2" md="5" lg="3">
-            <Button style={{width: '80px', backgroundColor: PokemonColors.grass, border: 0}}>Grass</Button>
-            <Button style={{width: '80px', backgroundColor: PokemonColors.fire, border: 0}}>Fire</Button>
+          <Col className="type-list-col">
+            <Button className="type-badge" style={{backgroundColor: PokemonColors.grass}}>Grass</Button>
+            <Button className="type-badge" style={{ backgroundColor: PokemonColors.fire }}>Fire</Button>
           </Col>
         </Row>
       </Container>
