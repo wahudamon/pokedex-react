@@ -16,7 +16,7 @@ export default function PokemonDetails() {
       <Container>
         <Row>
           <Col className="text-center">
-            <h2 className="my-3 text-capitalize" style={{color: "#000", fontSize: "18pt", fontWeight: "bold"}}>ninetales</h2>
+            <h2 className="my-3 text-capitalize" style={{color: "#000", fontWeight: "bold"}}>ninetales</h2>
           </Col>
         </Row>
         <Row>
@@ -59,7 +59,7 @@ export default function PokemonDetails() {
               <CardBody>
                 <ListGroup>
                   <ListGroupItem>
-                    <CardTitle style={{color: "#000", fontSize: "18pt", fontWeight: "bold"}}>Stats</CardTitle>
+                    <CardTitle><h4 style={{color: "#000", fontWeight: "bold"}}>Stats</h4></CardTitle>
                   </ListGroupItem>
                   <ListGroupItem>
                     <div style={{display: 'flex', justifyContent: 'space-between', color: "black"}}>HP <span>3000</span></div>
@@ -96,7 +96,7 @@ export default function PokemonDetails() {
               <CardBody>
                 <ListGroup>
                   <ListGroupItem onClick={toggle}>
-                    <CardTitle className="mt-3" style={{display: 'flex', justifyContent: 'space-between'}}><h2 style={{color: "#000", fontWeight: "bold"}}>Moves</h2> <span className="mt-2"><i>{isOpen ? <FaArrowUp /> : <FaArrowDown />}</i></span></CardTitle>
+                    <CardTitle className="mt-3" style={{display: 'flex', justifyContent: 'space-between'}}><h4 style={{color: "#000", fontWeight: "bold"}}>Moves</h4> <span className="mt-1"><button style={{backgroundColor: 'transparent', border: '0'}} onClick={toggle}><i>{isOpen ? <FaArrowUp /> : <FaArrowDown />}</i></button></span></CardTitle>
                   </ListGroupItem>
                   <Collapse isOpen={isOpen}>
                     <ListGroupItem>Howl</ListGroupItem>
