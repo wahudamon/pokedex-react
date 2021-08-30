@@ -59,7 +59,7 @@ export default function PokemonDetails() {
               <CardBody>
                 <ListGroup>
                   <ListGroupItem>
-                    <CardTitle><h4 style={{color: "#000", fontWeight: "bold"}}>Stats</h4></CardTitle>
+                    <CardTitle><h4 className="mt-2" style={{color: "#000", fontWeight: "bold"}}>Stats</h4></CardTitle>
                   </ListGroupItem>
                   <ListGroupItem>
                     <div style={{display: 'flex', justifyContent: 'space-between', color: "black"}}>HP <span>3000</span></div>
