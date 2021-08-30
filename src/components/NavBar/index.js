@@ -19,7 +19,7 @@ export default function NavBar() {
   return (
     <div>
       <Navbar color="#fff" light expand="md">
-        <NavbarBrand className="navbar-brand mx-4 mb-2" href="/"><img src={PokedexLogo} alt="pokedex logo" /></NavbarBrand>
+        <NavbarBrand className="mx-4 mb-2" href="/"><img src={PokedexLogo} alt="pokedex logo" /></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>

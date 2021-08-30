@@ -19,8 +19,8 @@ export const getAllPokemon = async () => {
   return pokemonArray;
 }
 
-export const getPokemonDetails = async () => {
-  const data = await fetching('https://pokeapi.co/api/v2/pokemon/pikachu');
+export const getPokemonDetails = async (pokeName) => {
+  const data = await fetching('https://pokeapi.co/api/v2/pokemon/'.concat(pokeName));
   return data;
 }
 

@@ -1,6 +1,6 @@
-import '../App.css';
+import '../../App.css';
 import { useEffect, useState } from 'react';
-import { getAllPokemon } from '../utils/queriesList';
+import { getAllPokemon } from '../../utils/queriesList';
 import { 
   Card, CardText, CardBody,
   CardTitle,
