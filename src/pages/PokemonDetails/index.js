@@ -1,8 +1,13 @@
-import { Button, Card, CardBody, CardTitle, Col, Container, ListGroup, ListGroupItem, Progress, Row, Table } from 'reactstrap';
+import { useState } from 'react';
+import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
+import { Button, Card, CardBody, CardTitle, Col, Collapse, Container, ListGroup, ListGroupItem, Progress, Row, Table } from 'reactstrap';
 import '../../App.css';
 import { PokemonColors } from '../../components/PokemonColors';
 
 export default function PokemonDetails() {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
+
   return(
     <div className="app">
       <div style={{backgroundColor: PokemonColors.grass}} className="details-header mt-3">
@@ -57,29 +62,48 @@ export default function PokemonDetails() {
                     <CardTitle style={{color: "#000", fontSize: "18pt", fontWeight: "bold"}}>Stats</CardTitle>
                   </ListGroupItem>
                   <ListGroupItem>
-                    <div style={{color: "black"}}>HP</div>
-                    <Progress value="4" max="5" />
+                    <div style={{display: 'flex', justifyContent: 'space-between', color: "black"}}>HP <span>3000</span></div>
+                    <Progress striped value="3000" max="5000" />
                   </ListGroupItem>
                   <ListGroupItem>
-                    <div style={{color: "black"}}>SPEED</div>
-                    <Progress value="2" max="5" />
+                    <div style={{display: 'flex', justifyContent: 'space-between', color: "black"}}>SPEED <span>250</span></div>
+                    <Progress striped value="250" max="500" />
                   </ListGroupItem>
                   <ListGroupItem>
-                    <div style={{color: "black"}}>ATTACK</div>
-                    <Progress value="2" max="5" />
+                    <div style={{display: 'flex', justifyContent: 'space-between', color: "black"}}>ATTACK <span>200</span></div>
+                    <Progress striped value="200" max="500" />
                   </ListGroupItem>
                   <ListGroupItem>
-                    <div style={{color: "black"}}>DEFENSE</div>
-                    <Progress value="4" max="5" />
+                    <div style={{display: 'flex', justifyContent: 'space-between', color: "black"}}>DEFENSE <span>150</span></div>
+                    <Progress striped value="150" max="500" />
                   </ListGroupItem>
                   <ListGroupItem>
-                    <div style={{color: "black"}}>SPECIAL ATTACK</div>
-                    <Progress value="3" max="5" />
+                    <div style={{display: 'flex', justifyContent: 'space-between', color: "black"}}>SPECIAL ATTACK <span>500</span></div>
+                    <Progress striped value="400" max="500" />
                   </ListGroupItem>
                   <ListGroupItem>
-                    <div style={{color: "black"}}>SPECIAL DEFENSE</div>
-                    <Progress value="2" max="5" />
+                    <div style={{display: 'flex', justifyContent: 'space-between', color: "black"}}>SPECIAL DEFENSE <span>300</span></div>
+                    <Progress striped value="300" max="500" />
                   </ListGroupItem>
+                </ListGroup>
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
+        <Row>
+          <Col className="type-list-col">
+            <Card body style={{maxWidth: "580px", border: "0"}}>
+              <CardBody>
+                <ListGroup>
+                  <ListGroupItem onClick={toggle}>
+                    <CardTitle className="mt-3" style={{display: 'flex', justifyContent: 'space-between'}}><h2 style={{color: "#000", fontWeight: "bold"}}>Moves</h2> <span className="mt-2"><i>{isOpen ? <FaArrowUp /> : <FaArrowDown />}</i></span></CardTitle>
+                  </ListGroupItem>
+                  <Collapse isOpen={isOpen}>
+                    <ListGroupItem>Howl</ListGroupItem>
+                    <ListGroupItem>Scratch</ListGroupItem>
+                    <ListGroupItem>Growl</ListGroupItem>
+                    <ListGroupItem>Run</ListGroupItem>
+                  </Collapse>
                 </ListGroup>
               </CardBody>
             </Card>
