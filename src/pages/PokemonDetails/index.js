@@ -26,8 +26,8 @@ export default function PokemonDetails() {
 
   return(
     <div className="app">
-      <div style={{backgroundColor: PokemonDetails.types !== undefined ? PokemonColors[pokemonDetail.types[0].type.name] : PokemonColors.normal}} className="details-header mt-3">
-        <img width="200px" src={pokemonDetail.sprites !== undefined ? pokemonDetail.sprites.front_default : PokeballIcon} alt="jolteon" />
+      <div style={{backgroundColor: pokemonDetail.types ? PokemonColors[pokemonDetail.types[0].type.name] : PokemonColors.normal}} className="details-header mt-3">
+        <img width="200px" src={pokemonDetail.sprites ? pokemonDetail.sprites.front_default : PokeballIcon} alt={pokemonDetail.name} />
       </div>
       <Container>
         <Row>
@@ -37,7 +37,7 @@ export default function PokemonDetails() {
         </Row>
         <Row>
           <Col className="type-list-col">
-            {pokemonDetail.types !== undefined ? pokemonDetail.types.map(pokeType => (
+            {pokemonDetail.types ? pokemonDetail.types.map(pokeType => (
               <Button key={pokeType.type.name} className="type-badge" style={{backgroundColor: PokemonColors[pokeType.type.name]}}>{pokeType.type.name}</Button>
             )) : <h2 className="my-3 text-capitalize" style={{color: "#000", fontWeight: "bold"}}>Loading...</h2>}
           </Col>

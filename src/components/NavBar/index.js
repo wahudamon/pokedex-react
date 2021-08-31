@@ -26,9 +26,6 @@ export default function NavBar() {
             <NavItem>
               <NavLink href="/my-pokemon">My Pokemon</NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink href="/details">Details</NavLink>
-            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
