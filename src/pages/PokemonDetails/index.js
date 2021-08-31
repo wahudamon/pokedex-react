@@ -26,20 +26,20 @@ export default function PokemonDetails() {
 
   return(
     <div className="app">
-      <div style={{backgroundColor: PokemonColors.fire}} className="details-header mt-3">
-        <img width="200px" src={PokeballIcon} alt="jolteon" />
+      <div style={{backgroundColor: PokemonDetails.types !== undefined ? PokemonColors[pokemonDetail.types[0].type.name] : PokemonColors.normal}} className="details-header mt-3">
+        <img width="200px" src={pokemonDetail.sprites !== undefined ? pokemonDetail.sprites.front_default : PokeballIcon} alt="jolteon" />
       </div>
       <Container>
         <Row>
           <Col className="text-center">
-            <h2 className="my-3 text-capitalize" style={{color: "#000", fontWeight: "bold"}}>Menangis</h2>
+            <h2 className="my-3 text-capitalize" style={{color: "#000", fontWeight: "bold"}}>{pokemonDetail.name}</h2>
           </Col>
         </Row>
         <Row>
           <Col className="type-list-col">
-            <Button className="type-badge" style={{backgroundColor: PokemonColors.grass}}>Grass</Button>
-            <Button className="type-badge" style={{ backgroundColor: PokemonColors.fire }}>Fire</Button>
-            <Button className="type-badge" style={{ backgroundColor: PokemonColors.water }}>Water</Button>
+            {pokemonDetail.types !== undefined ? pokemonDetail.types.map(pokeType => (
+              <Button key={pokeType.type.name} className="type-badge" style={{backgroundColor: PokemonColors[pokeType.type.name]}}>{pokeType.type.name}</Button>
+            )) : <h2 className="my-3 text-capitalize" style={{color: "#000", fontWeight: "bold"}}>Loading...</h2>}
           </Col>
         </Row>
         <Row>
@@ -55,8 +55,8 @@ export default function PokemonDetails() {
                   </thead>
                   <tbody>
                     <tr>
-                      {/* <td className="table-content">{pokemonDetail.height}"</td>
-                      <td className="table-content">{pokemonDetail.weight}lbs</td> */}
+                      <td className="table-content">{pokemonDetail.height}"</td>
+                      <td className="table-content">{pokemonDetail.weight}lbs</td>
                     </tr>
                   </tbody>
                 </Table>
@@ -115,13 +115,9 @@ export default function PokemonDetails() {
                     <CardTitle className="mt-3" style={{display: 'flex', justifyContent: 'space-between'}}><h4 style={{color: "#000", fontWeight: "bold"}}>Moves</h4> <span className="mt-1"><button style={{backgroundColor: 'transparent', border: '0'}} onClick={toggle}><i>{isOpen ? <FaArrowUp /> : <FaArrowDown />}</i></button></span></CardTitle>
                   </ListGroupItem>
                   <Collapse isOpen={isOpen}>
-                    {/* {pokemonDetail.moves.map(pokeMove => (
-                      <ListGroupItem>{pokeMove.move.name}</ListGroupItem>
-                    ))} */}
-                    <ListGroupItem>Howl</ListGroupItem>
-                    <ListGroupItem>Scratch</ListGroupItem>
-                    <ListGroupItem>Growl</ListGroupItem>
-                    <ListGroupItem>Run</ListGroupItem>
+                    {pokemonDetail.moves && pokemonDetail.moves.map(pokeMove => (
+                      <ListGroupItem key={pokeMove.move.name}>{pokeMove.move.name}</ListGroupItem>
+                    ))}
                   </Collapse>
                 </ListGroup>
               </CardBody>
