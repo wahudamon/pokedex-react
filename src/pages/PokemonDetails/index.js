@@ -84,9 +84,9 @@ export default function PokemonDetails() {
                     <CardTitle className="mt-3" style={{display: 'flex', justifyContent: 'space-between'}}><h4 style={{color: "#000", fontWeight: "bold"}}>Moves</h4> <span className="mt-1"><button style={{backgroundColor: 'transparent', border: '0'}} onClick={toggle}><i>{isOpen ? <FaArrowUp /> : <FaArrowDown />}</i></button></span></CardTitle>
                   </ListGroupItem>
                   <Collapse isOpen={isOpen}>
-                    {pokemonDetail.moves && pokemonDetail.moves.map(pokeMove => (
+                    {pokemonDetail.moves ? pokemonDetail.moves.map(pokeMove => (
                       <ListGroupItem key={pokeMove.move.name}>{pokeMove.move.name}</ListGroupItem>
-                    ))}
+                    )) : <ListGroupItem>Moves not Found!</ListGroupItem>}
                   </Collapse>
                 </ListGroup>
               </CardBody>
