@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
 import { useParams } from 'react-router-dom';
-import { Button, Card, CardBody, CardTitle, Col, Collapse, Container, ListGroup, ListGroupItem, Progress, Row, Table } from 'reactstrap';
+import { Button, Card, CardBody, CardTitle, Col, Collapse, Container, ListGroup, ListGroupItem, Row, Table } from 'reactstrap';
 import '../../App.css';
 import { PokemonColors } from '../../components/PokemonColors';
 import { getPokemonDetails } from '../../utils/queriesList';
 
 import PokeballIcon from '../../assets/images/pokeball_icon.png';
+import StatList from '../../components/StatList';
 
 export default function PokemonDetails() {
   const [isOpen, setIsOpen] = useState(false);
@@ -71,39 +72,7 @@ export default function PokemonDetails() {
         </Row>
         <Row>
           <Col className="type-list-col">
-            <Card body style={{maxWidth: "580px", border: "0"}}>
-              <CardBody>
-                <ListGroup>
-                  <ListGroupItem>
-                    <CardTitle><h4 className="mt-2" style={{color: "#000", fontWeight: "bold"}}>Stats</h4></CardTitle>
-                  </ListGroupItem>
-                  <ListGroupItem>
-                    <div style={{display: 'flex', justifyContent: 'space-between', color: "black"}}>HP <span>3000</span></div>
-                    <Progress striped value="3000" max="5000" />
-                  </ListGroupItem>
-                  <ListGroupItem>
-                    <div style={{display: 'flex', justifyContent: 'space-between', color: "black"}}>SPEED <span>250</span></div>
-                    <Progress striped value="250" max="500" />
-                  </ListGroupItem>
-                  <ListGroupItem>
-                    <div style={{display: 'flex', justifyContent: 'space-between', color: "black"}}>ATTACK <span>200</span></div>
-                    <Progress striped value="200" max="500" />
-                  </ListGroupItem>
-                  <ListGroupItem>
-                    <div style={{display: 'flex', justifyContent: 'space-between', color: "black"}}>DEFENSE <span>150</span></div>
-                    <Progress striped value="150" max="500" />
-                  </ListGroupItem>
-                  <ListGroupItem>
-                    <div style={{display: 'flex', justifyContent: 'space-between', color: "black"}}>SPECIAL ATTACK <span>500</span></div>
-                    <Progress striped value="400" max="500" />
-                  </ListGroupItem>
-                  <ListGroupItem>
-                    <div style={{display: 'flex', justifyContent: 'space-between', color: "black"}}>SPECIAL DEFENSE <span>300</span></div>
-                    <Progress striped value="300" max="500" />
-                  </ListGroupItem>
-                </ListGroup>
-              </CardBody>
-            </Card>
+            {pokemonDetail.stats ? <StatList hitpoint={pokemonDetail.stats[0].base_stat} attack={pokemonDetail.stats[1].base_stat} defense={pokemonDetail.stats[2].base_stat} special_attack={pokemonDetail.stats[3].base_stat} special_defense={pokemonDetail.stats[4].base_stat} speed={pokemonDetail.stats[5].base_stat} /> : <h2 className="my-3 text-capitalize" style={{color: "#000", fontWeight: "bold"}}>Loading...</h2>}
           </Col>
         </Row>
         <Row>
