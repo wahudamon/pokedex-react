@@ -1,4 +1,3 @@
-/* @import url('http://fonts.cdnfonts.com/css/pokemon-solid'); */
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
@@ -43,7 +42,7 @@
 
 .type-badge {
   margin-left: 10px;
-  width: 80px;
+  max-width: 90px;
   border: 0 !important;
   font-weight: bold !important;
 }
