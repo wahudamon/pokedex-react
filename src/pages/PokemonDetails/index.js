@@ -79,7 +79,7 @@ export default function PokemonDetails() {
           </Col>
         </Row>
         <Row>
-          <Col className="type-list-col">
+          <Col className="type-list-col mb-5">
             <Card body style={{maxWidth: "580px", border: "0"}}>
               <CardBody>
                 <ListGroup>
@@ -107,7 +107,7 @@ export default function PokemonDetails() {
           <Button onClick={onSetVisibility} color="danger">Cancel</Button>
         </ModalFooter>
       </Modal>
-      <div className="text-center fixed-bottom mb-3">
+      <div className="text-center fixed-bottom mb-2">
         <Button className="btn-catch" onClick={onSetVisibility} color="link"><img width="50px" src={PokeballIcon} alt="pokeball-icon" /></Button>
       </div>
     </div>
