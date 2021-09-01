@@ -100,7 +100,7 @@ export default function PokemonDetails() {
       <Modal isOpen={visible} toggle={onSetVisibility}>
         <ModalHeader>Wild Pokemon Found!</ModalHeader>
         <ModalBody>
-          Catch this Pokemon?
+          Catch this <span className="text-capitalize">{pokemonDetail.name}</span>?
         </ModalBody>
         <ModalFooter>
           <Button color="info">Catch!</Button>
