@@ -6,7 +6,7 @@ import {
   CardTitle,
   Row,
   Col,
-  CardImg, 
+  CardImg,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 

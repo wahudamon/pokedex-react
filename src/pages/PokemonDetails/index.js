@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
 import { useParams } from 'react-router-dom';
-import { Button, Card, CardBody, CardTitle, Col, Collapse, Container, ListGroup, ListGroupItem, Row, Table } from 'reactstrap';
+import { Button, Card, CardBody, CardTitle, Col, Collapse, Container, ListGroup, ListGroupItem, Row, Table, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import '../../App.css';
 import { PokemonColors } from '../../components/PokemonColors';
 import { getPokemonDetails } from '../../utils/queriesList';
@@ -24,6 +24,9 @@ export default function PokemonDetails() {
 
     fetching();
   }, [pokeName])
+
+  const [visible, setVisible] = useState(false);
+  const onSetVisibility = () => setVisible(!visible);
 
   return(
     <div className="app">
@@ -94,6 +97,19 @@ export default function PokemonDetails() {
           </Col>
         </Row>
       </Container>
+      <Modal isOpen={visible} toggle={onSetVisibility}>
+        <ModalHeader>Wild Pokemon Found!</ModalHeader>
+        <ModalBody>
+          Catch this Pokemon?
+        </ModalBody>
+        <ModalFooter>
+          <Button color="info">Catch!</Button>
+          <Button onClick={onSetVisibility} color="danger">Cancel</Button>
+        </ModalFooter>
+      </Modal>
+      <div className="text-center fixed-bottom mb-3">
+        <Button className="btn-catch" onClick={onSetVisibility} color="link"><img width="50px" src={PokeballIcon} alt="pokeball-icon" /></Button>
+      </div>
     </div>
   )
 }
