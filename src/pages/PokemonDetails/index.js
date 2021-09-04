@@ -8,6 +8,7 @@ import { getPokemonDetails } from '../../utils/queriesList';
 
 import PokeballIcon from '../../assets/images/pokeball_icon.png';
 import StatList from '../../components/StatList';
+import CatchingModal from '../../components/CatchingModal';
 
 export default function PokemonDetails() {
   const [isOpen, setIsOpen] = useState(false);
@@ -97,7 +98,7 @@ export default function PokemonDetails() {
           </Col>
         </Row>
       </Container>
-      <Modal isOpen={visible} toggle={onSetVisibility}>
+      {/* <Modal isOpen={visible} toggle={onSetVisibility}>
         <ModalHeader>Wild Pokemon Found!</ModalHeader>
         <ModalBody>
           Catch this <span className="text-capitalize">{pokemonDetail.name}</span>?
@@ -106,7 +107,8 @@ export default function PokemonDetails() {
           <Button color="info">Catch!</Button>
           <Button onClick={onSetVisibility} color="danger">Cancel</Button>
         </ModalFooter>
-      </Modal>
+      </Modal> */}
+      <CatchingModal visible={visible} onSetVisibility={onSetVisibility} pokemonName={pokemonDetail.name} />
       <div className="text-center fixed-bottom mb-2">
         <Button className="btn-catch" onClick={onSetVisibility} color="link"><img width="50px" src={PokeballIcon} alt="pokeball-icon" /></Button>
       </div>
