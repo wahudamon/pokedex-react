@@ -47,7 +47,7 @@ export default function WildPokemonList() {
         ))}
         </Row>
         <div className="text-center fixed-bottom mb-4">
-          <a href="/my-pokemon" className="btn btn-secondary btn-catch" style={{borderRadius: '20px'}}>My Pokemon <Badge color="dark">0</Badge></a>
+          <a href="/my-pokemon" className="btn btn-catch" style={{backgroundColor: 'gray', color: 'white', borderRadius: '10px'}}>My Pokemon <Badge style={{backgroundColor: '#d3d3d3', color: 'black'}}>0</Badge></a>
         </div>
     </div>
   )
