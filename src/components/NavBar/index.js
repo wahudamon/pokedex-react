@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import {
   //Collapse,
   Navbar,
@@ -13,8 +13,8 @@ import PokedexLogo from '../../assets/images/pokedex-logo.png';
 import '../../App.css';
 
 export default function NavBar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+  // const [isOpen, setIsOpen] = useState(false);
+  // const toggle = () => setIsOpen(!isOpen);
 
   return (
     <div>

@@ -22,12 +22,14 @@ const MyPokemonContextProvider = (props) => {
 }
 
 export const useMyPokemonList = () => {
-  const {myPokemonList} = useContext(MyPokemonContext);
+  //const {myPokemonList} = useContext(MyPokemonContext);
+  const myPokemonList = useContext(MyPokemonContext);
   return myPokemonList;
 }
 
 export const useAddMyPokemonList = () => {
-  const {setMyPokemonList} = useContext(MyPokemonContext);
+  // const {setMyPokemonList} = useContext(MyPokemonContext);
+  const setMyPokemonList = useContext(MyPokemonContext);
   return (pokemon) => {
     setMyPokemonList((prev) => [...prev, pokemon]);
   };
