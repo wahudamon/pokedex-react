@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Modal, ModalHeader, ModalBody, ModalFooter, Button, Form, FormGroup, Label, Input, Spinner } from "reactstrap";
 import {
    //useAddMyPokemonList, 
    useMyPokemonList 
@@ -132,9 +132,9 @@ export default function CatchingModal(props) {
       }
       {catching &&
         <>
-          <ModalHeader>Catching Wild Pokemon...</ModalHeader>
-          <ModalBody>
-            Now loading....
+          <ModalHeader>Catching <span className="text-capitalize">{props.pokemonData.name}</span>...</ModalHeader>
+          <ModalBody className="text-center">
+            <Spinner children="" color="primary" />
           </ModalBody>
         </>
       }
