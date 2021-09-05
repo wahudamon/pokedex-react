@@ -19,7 +19,6 @@ const PokemonDetails = React.lazy(() => import('./pages/PokemonDetails'));
 function App() {
   return(
     <Router>
-      {/* <Suspense fallback={<h1>Loading Data...</h1>}> */}
       <Suspense fallback={<Spinner children="" />}>
       <div>
         <NavBar />
