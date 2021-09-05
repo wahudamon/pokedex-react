@@ -98,6 +98,10 @@ export default function PokemonDetails() {
           </Col>
         </Row>
       </Container>
+      <CatchingModal visible={visible} onSetVisibility={onSetVisibility} pokemonData={pokemonDetail} />
+      <div className="text-center fixed-bottom mb-2">
+        <Button className="btn-catch" onClick={onSetVisibility} color="link"><img width="50px" src={PokeballIcon} alt="pokeball-icon" /></Button>
+      </div>
       {/* <Modal isOpen={visible} toggle={onSetVisibility}>
         <ModalHeader>Wild Pokemon Found!</ModalHeader>
         <ModalBody>
@@ -108,10 +112,7 @@ export default function PokemonDetails() {
           <Button onClick={onSetVisibility} color="danger">Cancel</Button>
         </ModalFooter>
       </Modal> */}
-      <CatchingModal visible={visible} onSetVisibility={onSetVisibility} pokemonName={pokemonDetail.name} />
-      <div className="text-center fixed-bottom mb-2">
-        <Button className="btn-catch" onClick={onSetVisibility} color="link"><img width="50px" src={PokeballIcon} alt="pokeball-icon" /></Button>
-      </div>
+      
     </div>
   )
 }

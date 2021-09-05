@@ -12,7 +12,7 @@ const generateCaughtPokemon = (nickName, pokemonData) => {
   return caughtPokemon;
 }
 
-export default function CatchingModal(props, { data }) {
+export default function CatchingModal(props) {
   const [catching, setCatching] = useState(false);
   const [firstTry, setFirstTry] = useState(true);
   const [success, setSuccess] = useState(false);
@@ -22,8 +22,8 @@ export default function CatchingModal(props, { data }) {
   const [nickNameExist, setNicknameExist] = useState(false);
   const handleChange = (event) => setNickname(event.target.value);
 
-  const myPokemonList = useMyPokemonList();
-  const addMyPokemon = useAddMyPokemonList();
+  // const myPokemonList = useMyPokemonList();
+  // const addMyPokemon = useAddMyPokemonList();
 
   const getRandomItem = () => {
     const arr = [1, 0];
@@ -69,28 +69,29 @@ export default function CatchingModal(props, { data }) {
       setNicknameMsg("Nickname harus unik!");
     } else {
       setDefault();
-      const pokemonCaught = generateCaughtPokemon(nickName, data);
-      addMyPokemon(pokemonCaught);
+      // const pokemonCaught = generateCaughtPokemon(nickName, data);
+      const pokemonCaught = generateCaughtPokemon(nickName);
+      // addMyPokemon(pokemonCaught);
       console.log(pokemonCaught);
       //onClose(); punya chakra ui
       //saveToast(nickName); punya chakra ui
     }
   }
 
-  useEffect(() => {
-    localStorage.setItem('myPokemon', JSON.stringify(myPokemonList));
-    setNicknameExist(myPokemonList.some(el => el.nickName === nickName));
-  }, [myPokemonList, nickName]);
+  // useEffect(() => {
+  //   localStorage.setItem('myPokemon', JSON.stringify(myPokemonList));
+  //   setNicknameExist(myPokemonList.some(el => el.nickName === nickName));
+  // }, [myPokemonList, nickName]);
 
   return (
     <Modal isOpen={props.visible} toggle={props.onSetVisibility}>
       <ModalHeader>Wild Pokemon Found!</ModalHeader>
       <ModalBody>
-        Catch this <span className="text-capitalize">{props.pokemonName}</span>?
+        Catch this <span className="text-capitalize">{props.pokemonData.name}</span>?
       </ModalBody>
       <ModalFooter>
         <Button color="info">Catch!</Button>
-        <Button color="danger">Cancel</Button>
+        <Button onClick={props.onSetVisibility} color="danger">Cancel</Button>
       </ModalFooter>
     </Modal>
   )

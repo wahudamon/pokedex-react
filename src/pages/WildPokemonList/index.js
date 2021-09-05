@@ -2,12 +2,13 @@ import '../../App.css';
 import { useEffect, useState } from 'react';
 import { getAllPokemon } from '../../utils/queriesList';
 import { 
-  Card, CardText, CardBody,
+  Card, 
+  //CardText, 
+  CardBody,
   CardTitle,
   Row,
   Col,
   CardImg,
-  Button,
   Badge,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
@@ -38,9 +39,9 @@ export default function WildPokemonList() {
                   <CardTitle className="text-capitalize" style={{color: 'gray', fontSize: '16pt', fontWeight: 'bold'}}>{pokemon.name}</CardTitle>
                   <CardImg width="100%" src={pokemon.image} alt="Card image cap" />
                 </CardBody>
-                <CardBody style={{backgroundColor: '#FFFFFF', borderRadius: '15px'}}>
+                {/* <CardBody style={{backgroundColor: '#FFFFFF', borderRadius: '15px'}}>
                   <CardText style={{color: '#000', fontSize: '12pt'}}>Owned: 0</CardText>
-                </CardBody>
+                </CardBody> */}
               </Card>
             </Link>
           </Col>
