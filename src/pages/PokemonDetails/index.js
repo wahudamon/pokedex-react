@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
 import { useParams } from 'react-router-dom';
-import { Button, Card, CardBody, CardTitle, Col, Collapse, Container, ListGroup, ListGroupItem, Row, Table, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Card, CardBody, CardTitle, Col, Collapse, Container, ListGroup, ListGroupItem, Row, Table } from 'reactstrap';
 import '../../App.css';
 import { PokemonColors } from '../../components/PokemonColors';
 import { getPokemonDetails } from '../../utils/queriesList';

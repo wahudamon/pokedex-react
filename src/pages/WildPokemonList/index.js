@@ -7,6 +7,8 @@ import {
   Row,
   Col,
   CardImg,
+  Button,
+  Badge,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
@@ -44,6 +46,9 @@ export default function WildPokemonList() {
           </Col>
         ))}
         </Row>
+        <div className="text-center fixed-bottom mb-4">
+          <a href="/my-pokemon" className="btn btn-secondary btn-catch" style={{borderRadius: '20px'}}>My Pokemon <Badge color="dark">0</Badge></a>
+        </div>
     </div>
   )
 }
