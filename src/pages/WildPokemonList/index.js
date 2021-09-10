@@ -12,6 +12,15 @@ import {
   Badge,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { CountAllMyPokemon, MyPokemonProvider } from '../../context/MyContext';
+
+const MyPokemonSummaryBadge = () => {
+  const myPokemonSummary = CountAllMyPokemon();
+
+  return (
+    <Badge style={{marginLeft: '8px', backgroundColor: '#d3d3d3', color: 'black'}}>{myPokemonSummary}</Badge>
+  )
+}
 
 export default function WildPokemonList() {
   const [wildPokemon, getWildPokemon] = useState([]);
@@ -48,7 +57,12 @@ export default function WildPokemonList() {
         ))}
         </Row>
         <div className="text-center fixed-bottom mb-4">
-          <a href="/my-pokemon" className="btn btn-catch" style={{backgroundColor: 'gray', color: 'white', borderRadius: '10px'}}>My Pokemon <Badge style={{backgroundColor: '#d3d3d3', color: 'black'}}>0</Badge></a>
+          <a href="/my-pokemon" className="btn" style={{backgroundColor: 'gray', color: 'white', borderRadius: '10px'}}>
+            My Pokemon 
+            <MyPokemonProvider>
+              <MyPokemonSummaryBadge/>
+            </MyPokemonProvider>
+          </a>
         </div>
     </div>
   )

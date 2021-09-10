@@ -31,6 +31,12 @@ export const AddMyPokemonList = () => {
   }
 }
 
+export const CountAllMyPokemon = () => {
+  const {myPokemonList} = useContext(MyPokemonContext)
+
+  return myPokemonList.length
+}
+
 
 
 export {MyPokemonContext, MyPokemonProvider}
