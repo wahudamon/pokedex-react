@@ -70,11 +70,11 @@ export default function PokemonDetails() {
             </Card>
           </Col>
         </Row>
-        <Row>
+        {/* <Row>
           <Col className="text-center">
             <p className="my-3" style={{color: "#000", fontSize: "12pt"}}>Owned: 0</p>
           </Col>
-        </Row>
+        </Row> */}
         <Row>
           <Col className="type-list-col">
             {pokemonDetail.stats ? <StatList hitpoint={pokemonDetail.stats[0].base_stat} attack={pokemonDetail.stats[1].base_stat} defense={pokemonDetail.stats[2].base_stat} special_attack={pokemonDetail.stats[3].base_stat} special_defense={pokemonDetail.stats[4].base_stat} speed={pokemonDetail.stats[5].base_stat} /> : <h2 className="my-3 text-capitalize" style={{color: "#000", fontWeight: "bold"}}>Loading...</h2>}

@@ -37,6 +37,13 @@ export const CountAllMyPokemon = () => {
   return myPokemonList.length
 }
 
+export const ReleaseMyPokemon = () => {
+  const {setMyPokemonList} = useContext(MyPokemonContext)
+
+  return (nickName) => {
+    setMyPokemonList((list) => list.filter((item) => item.nickname !== nickName))
+  }
+}
 
 
 export {MyPokemonContext, MyPokemonProvider}
