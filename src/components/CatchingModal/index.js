@@ -1,19 +1,23 @@
-import { useEffect, useState } from "react";
+import { 
+  // useContext, 
+  useEffect, 
+  useState 
+} from "react";
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button, Form, FormGroup, Label, Input, Spinner } from "reactstrap";
-import {
-   //useAddMyPokemonList, 
-   useMyPokemonList 
-  } from "../../context/context";
+import { 
+  AddMyPokemonList,
+  GetMyPokemonList 
+} from "../../context/MyContext";
 
-// const generateCaughtPokemon = (nickName, pokemonData) => {
-//   const caughtPokemon = {
-//     nickname: nickName,
-//     name: pokemonData.name,
-//     image: pokemonData.sprites.front_default,
-//     type: pokemonData.types.map(type => (type.type.name))
-//   }
-//   return caughtPokemon;
-// }
+const generateCaughtPokemon = (nickName, pokemonData) => {
+  const caughtPokemon = {
+    nickname: nickName,
+    name: pokemonData.name,
+    image: pokemonData.sprites.front_default,
+    type: pokemonData.types.map(type => (type.type.name))
+  }
+  return caughtPokemon;
+}
 
 export default function CatchingModal(props) {
   const [catching, setCatching] = useState(false);
@@ -23,13 +27,14 @@ export default function CatchingModal(props) {
   // const [nickNameError, setNicknameError] = useState(false);
   // const [nickNameMsg, setNicknameMsg] = useState("");
   // const [nickNameExist, setNicknameExist] = useState(false);
-  // const handleChange = (event) => setNickname(event.target.value);
+  const handleChange = (event) => setNickname(event.target.value);
 
-  const myPokemonList = useMyPokemonList();
-  // const addMyPokemon = useAddMyPokemonList();
+  const myPokemonList = GetMyPokemonList();
+  const saveCaughtPokemon = AddMyPokemonList();
 
   const getRandomItem = () => {
-    const arr = [1, 0];
+    // const arr = [1, 0];
+    const arr = [1, 1];
     const randomIndex = Math.floor(Math.random() * arr.length);
     const item = arr[randomIndex];
     return item;
@@ -61,21 +66,24 @@ export default function CatchingModal(props) {
   //   setNicknameError(false);
   // }
 
-  // const savePokemon = () => {
-  //   if(nickName === "") {
-  //     setNicknameError(true);
-  //     setNicknameMsg("Nickname harus diisi!");
-  //   } else if(nickNameExist) {
-  //     setNicknameError(true);
-  //     setNicknameMsg("Nickname harus unik!");
-  //   } else {
-  //     setDefault();
-  //     // const pokemonCaught = generateCaughtPokemon(nickName, data);
-  //     const pokemonCaught = generateCaughtPokemon(nickName);
-  //     // addMyPokemon(pokemonCaught);
-  //     console.log(pokemonCaught);
-  //   }
-  // }
+  const savePokemon = () => {
+    setDefault();
+    const caughtPokemon = generateCaughtPokemon(nickName, props.pokemonData);
+    saveCaughtPokemon(caughtPokemon);
+    console.log(caughtPokemon);
+    // if(nickName === "") {
+    //   setNicknameError(true);
+    //   setNicknameMsg("Nickname harus diisi!");
+    // } else if(nickNameExist) {
+    //   setNicknameError(true);
+    //   setNicknameMsg("Nickname harus unik!");
+    // } else {
+    //   setDefault();
+    //   // const pokemonCaught = generateCaughtPokemon(nickName, data);
+    //   // addMyPokemon(pokemonCaught);
+    //   console.log(pokemonCaught);
+    // }
+  }
 
   useEffect(() => {
     localStorage.setItem('myPokemon', JSON.stringify(myPokemonList));
@@ -105,13 +113,13 @@ export default function CatchingModal(props) {
                 Successfully catch <span className="text-capitalize">{props.pokemonData.name}</span>!
                 <Form>
                   <FormGroup>
-                    <Label for="nickNameLabel">Write a Nickname</Label>
-                    <Input type="text" id="nickNameLabel" />
+                    <Label for="nickNameInput">Write a Nickname</Label>
+                    <Input type="text" value={nickName} onChange={handleChange} id="nickNameInput" />
                   </FormGroup>
                 </Form>
               </ModalBody>
               <ModalFooter>
-                <Button onClick={closeCatching} color="info">Save</Button>
+                <Button onClick={savePokemon} color="info">Save</Button>
                 <Button onClick={closeCatching} color="danger">Cancel</Button>
               </ModalFooter>
             </>
