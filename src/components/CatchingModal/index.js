@@ -53,12 +53,12 @@ export default function CatchingModal(props) {
     setFirstTry(true);
     setSuccess(false);
     setNickname("");
+    props.onSetVisibility();
     // setNicknameError(false);
     // setNicknameMsg("");
   }
 
   const closeCatching = () => {
-    props.onSetVisibility();
     setDefault();
   }
 

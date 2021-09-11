@@ -14,6 +14,7 @@ import { GetMyPokemonList, MyPokemonProvider } from '../../context/MyContext';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import ReleaseModal from '../../components/ReleaseModal';
+import PokeballIcon from '../../assets/images/pokeball_icon.png';
 
 // Soon di pisah component buat pokemon card nya
 
@@ -22,9 +23,27 @@ const MyPokemonCardContainer = () => {
 
   return (
     <Row className="mx-5 my-3 g-3">
-      {myPokemonList.map(pokemon => (
-        <MyPokemonCard pokemon={pokemon} />
-      ))}
+      {myPokemonList && 
+        <>
+          {myPokemonList.length !== 0 && myPokemonList.map(pokemon => (
+            <MyPokemonCard key={pokemon.nickname} pokemon={pokemon} />
+          ))}
+          {myPokemonList.length === 0 && 
+            <div className="app-header">
+              <img width="200px" src={PokeballIcon} alt="pokeball-icon" />
+              <h3>You dont have any Pokemon</h3>
+              <h5>Let's catch the Wild Pokemon!</h5>
+            </div>
+          }
+        </>
+      }
+      {!myPokemonList && 
+        <div className="app-header">
+          <img width="200px" src={PokeballIcon} alt="pokeball-icon" />
+          <h3>You dont have any Pokemon</h3>
+          <h5>Let's catch the Wild Pokemon!</h5>
+        </div>
+      }
     </Row>
   )
 }
@@ -34,7 +53,7 @@ const MyPokemonCard = (props) => {
   const onSetVisibility = () => setVisible(!visible);
 
   return (
-    <Col key={props.pokemon.nickname} sm="3" md="5" lg="3">
+    <Col sm="3" md="5" lg="3">
       <Card body className="text-center" style={{backgroundColor: props.pokemon.type ? PokemonColors[props.pokemon.type[0]] : PokemonColors.normal}}>
         <Link className="text-decoration-none" to={`/details/${props.pokemon.name}`}>
           <CardBody>

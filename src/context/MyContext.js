@@ -38,10 +38,19 @@ export const CountAllMyPokemon = () => {
 }
 
 export const ReleaseMyPokemon = () => {
+  const {myPokemonList } = useContext(MyPokemonContext)
   const {setMyPokemonList} = useContext(MyPokemonContext)
 
   return (nickName) => {
-    setMyPokemonList((list) => list.filter((item) => item.nickname !== nickName))
+
+    setMyPokemonList((list) => {
+      if(list.length > 1) {
+        list.filter((item) => item.nickname !== nickName);
+      } else {
+        myPokemonList.splice(0, 1);
+        localStorage.setItem('myPokemon', JSON.stringify(myPokemonList))
+      }
+    })
   }
 }
 
