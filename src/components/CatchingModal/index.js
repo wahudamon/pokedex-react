@@ -1,5 +1,4 @@
 import { 
-  // useContext, 
   useEffect, 
   useState 
 } from "react";
@@ -24,17 +23,18 @@ export default function CatchingModal(props) {
   const [firstTry, setFirstTry] = useState(true);
   const [success, setSuccess] = useState(false);
   const [nickName, setNickname] = useState("");
-  // const [nickNameError, setNicknameError] = useState(false);
-  // const [nickNameMsg, setNicknameMsg] = useState("");
-  // const [nickNameExist, setNicknameExist] = useState(false);
+  const [nickNameMsg, setNicknameMsg] = useState("");
+  const [nickNameExist, setNicknameExist] = useState(false);
   const handleChange = (event) => setNickname(event.target.value);
+
+  const [toastIsOpen, setToastIsOpen] = useState(false);
+  const toggleToast = () => setToastIsOpen(!toastIsOpen);
 
   const myPokemonList = GetMyPokemonList();
   const saveCaughtPokemon = AddMyPokemonList();
 
   const getRandomItem = () => {
-    // const arr = [1, 0];
-    const arr = [1, 1];
+    const arr = [1, 0];
     const randomIndex = Math.floor(Math.random() * arr.length);
     const item = arr[randomIndex];
     return item;
@@ -46,7 +46,7 @@ export default function CatchingModal(props) {
       setCatching(false);
       setFirstTry(false);
       setSuccess(!!getRandomItem())
-    }, 3000)
+    }, 4000)
   }
 
   const setDefault = () => {
@@ -54,40 +54,38 @@ export default function CatchingModal(props) {
     setSuccess(false);
     setNickname("");
     props.onSetVisibility();
-    // setNicknameError(false);
-    // setNicknameMsg("");
+    setNicknameMsg("");
+  }
+
+  const setFormDefault = () => {
+    setNickname("");
+    toggleToast();
   }
 
   const closeCatching = () => {
     setDefault();
   }
 
-  // const setFalseNickName = () => {
-  //   setNicknameError(false);
-  // }
-
   const savePokemon = () => {
-    setDefault();
-    const caughtPokemon = generateCaughtPokemon(nickName, props.pokemonData);
-    saveCaughtPokemon(caughtPokemon);
-    console.log(caughtPokemon);
-    // if(nickName === "") {
-    //   setNicknameError(true);
-    //   setNicknameMsg("Nickname harus diisi!");
-    // } else if(nickNameExist) {
-    //   setNicknameError(true);
-    //   setNicknameMsg("Nickname harus unik!");
-    // } else {
-    //   setDefault();
-    //   // const pokemonCaught = generateCaughtPokemon(nickName, data);
-    //   // addMyPokemon(pokemonCaught);
-    //   console.log(pokemonCaught);
-    // }
+    if(nickName === "") {
+      setNicknameMsg("Nickname harus diisi!");
+      toggleToast();
+      console.log(nickNameMsg);
+    } else if(nickNameExist) {
+      setNicknameMsg("Nickname sudah ada!");
+      toggleToast();
+      console.log(nickNameMsg);
+    } else {
+      setDefault();
+      const caughtPokemon = generateCaughtPokemon(nickName, props.pokemonData);
+      saveCaughtPokemon(caughtPokemon);
+      console.log(caughtPokemon);
+    }
   }
 
   useEffect(() => {
     localStorage.setItem('myPokemon', JSON.stringify(myPokemonList));
-    // setNicknameExist(myPokemonList.some(el => el.nickName === nickName));
+    setNicknameExist(myPokemonList.some(el => el.nickname === nickName));
   }, [myPokemonList, nickName]);
 
   return (
@@ -114,7 +112,12 @@ export default function CatchingModal(props) {
                 <Form>
                   <FormGroup>
                     <Label for="nickNameInput">Write a Nickname</Label>
-                    <Input type="text" value={nickName} onChange={handleChange} id="nickNameInput" />
+                    <Input
+                      type="text"
+                      value={nickName}
+                      onChange={handleChange}
+                      id="nickNameInput"
+                    />
                   </FormGroup>
                 </Form>
               </ModalBody>
@@ -122,6 +125,12 @@ export default function CatchingModal(props) {
                 <Button onClick={savePokemon} color="info">Save</Button>
                 <Button onClick={closeCatching} color="danger">Cancel</Button>
               </ModalFooter>
+              <Modal isOpen={toastIsOpen}>
+                <ModalBody>{nickNameMsg}</ModalBody>
+                <ModalFooter>
+                  <Button onClick={setFormDefault} color="danger">Close</Button>
+                </ModalFooter>
+              </Modal>
             </>
           }
           {!success &&
