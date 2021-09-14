@@ -4,7 +4,7 @@
 // }
 
 export const getAllPokemon = async () => {
-  const pokemonName = await fetching('https://pokeapi.co/api/v2/pokemon-form?limit=20&offset=20');
+  const pokemonName = await fetching('https://pokeapi.co/api/v2/pokemon-form?limit=20&offset=1');
   const pokemonArray = [];
   for(let i = 0; i < pokemonName.results.length; i++) {
     const pokemon = pokemonName.results[i];

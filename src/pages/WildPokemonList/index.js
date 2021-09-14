@@ -13,6 +13,7 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { CountAllMyPokemon, MyPokemonProvider } from '../../context/MyContext';
+import SkeletonLoader from '../../components/SkeletonLoader';
 
 const MyPokemonSummaryBadge = () => {
   const myPokemonSummary = CountAllMyPokemon();
@@ -24,11 +25,15 @@ const MyPokemonSummaryBadge = () => {
 
 export default function WildPokemonList() {
   const [wildPokemon, getWildPokemon] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const toggleIsLoading = () => setIsLoading(!isLoading);
 
   useEffect(() => {
     const fetching = async () => {
       const res = await getAllPokemon();
       getWildPokemon(res);
+      toggleIsLoading();
     }
 
     fetching();
@@ -39,31 +44,35 @@ export default function WildPokemonList() {
       <header className="app-header">
         Wild Pokemon
       </header>
-      <Row className="mx-5 my-3 g-3">
+      {isLoading && 
+        <SkeletonLoader />
+      }
+      {!isLoading && 
+        <>
+          <Row className="mx-5 my-3 g-3">
         {wildPokemon.map(pokemon => (
-          <Col key={pokemon.name} sm="3" md="6" lg="3">
-            <Link className="text-decoration-none" to={`/details/${pokemon.name}`}>
-              <Card body className="text-center" style={{backgroundColor: 'lightgray', border: '0'}}>
-                <CardBody>
-                  <CardTitle className="text-capitalize" style={{color: 'gray', fontSize: '16pt', fontWeight: 'bold'}}>{pokemon.name}</CardTitle>
-                  <CardImg width="100%" src={pokemon.image} alt={pokemon.name + " image"} />
-                </CardBody>
-                {/* <CardBody style={{backgroundColor: '#FFFFFF', borderRadius: '15px'}}>
-                  <CardText style={{color: '#000', fontSize: '12pt'}}>Owned: 0</CardText>
-                </CardBody> */}
-              </Card>
-            </Link>
-          </Col>
-        ))}
-        </Row>
-        <div className="text-center fixed-bottom mb-4">
-          <a href="/my-pokemon" className="btn" style={{backgroundColor: 'gray', color: 'white', borderRadius: '10px'}}>
-            My Pokemon 
-            <MyPokemonProvider>
-              <MyPokemonSummaryBadge/>
-            </MyPokemonProvider>
-          </a>
-        </div>
+            <Col key={pokemon.name} sm="3" md="6" lg="3">
+              <Link className="text-decoration-none" to={`/details/${pokemon.name}`}>
+                <Card body className="text-center" style={{backgroundColor: 'lightgray', border: '0'}}>
+                  <CardBody>
+                    <CardTitle className="text-capitalize" style={{color: 'gray', fontSize: '16pt', fontWeight: 'bold'}}>{pokemon.name}</CardTitle>
+                    <CardImg width="100%" src={pokemon.image} alt={pokemon.name + " image"} />
+                  </CardBody>
+                </Card>
+              </Link>
+            </Col>
+          ))}
+          </Row>
+          <div className="text-center fixed-bottom mb-4">
+            <a href="/my-pokemon" className="btn" style={{backgroundColor: 'gray', color: 'white', borderRadius: '10px'}}>
+              My Pokemon 
+              <MyPokemonProvider>
+                <MyPokemonSummaryBadge/>
+              </MyPokemonProvider>
+            </a>
+          </div>
+        </>
+      }
     </div>
   )
 }

@@ -15,7 +15,7 @@ const PokemonDetails = React.lazy(() => import('./pages/PokemonDetails'));
 function App() {
   return(
     <Router>
-      <Suspense fallback={<></>}>
+      <Suspense fallback={""}>
       <div>
         <NavBar />
 
