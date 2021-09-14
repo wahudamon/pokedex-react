@@ -53,7 +53,7 @@ const MyPokemonCard = (props) => {
   const onSetVisibility = () => setVisible(!visible);
 
   return (
-    <Col sm="3" md="5" lg="3">
+    <Col sm="3" md="6" lg="3">
       <Card body className="text-center" style={{backgroundColor: props.pokemon.type ? PokemonColors[props.pokemon.type[0]] : PokemonColors.normal}}>
         <Link className="text-decoration-none" to={`/details/${props.pokemon.name}`}>
           <CardBody>

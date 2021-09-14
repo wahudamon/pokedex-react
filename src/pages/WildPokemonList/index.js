@@ -41,12 +41,12 @@ export default function WildPokemonList() {
       </header>
       <Row className="mx-5 my-3 g-3">
         {wildPokemon.map(pokemon => (
-          <Col key={pokemon.name} sm="3" md="5" lg="3">
+          <Col key={pokemon.name} sm="3" md="6" lg="3">
             <Link className="text-decoration-none" to={`/details/${pokemon.name}`}>
               <Card body className="text-center" style={{backgroundColor: 'lightgray', border: '0'}}>
                 <CardBody>
                   <CardTitle className="text-capitalize" style={{color: 'gray', fontSize: '16pt', fontWeight: 'bold'}}>{pokemon.name}</CardTitle>
-                  <CardImg width="100%" src={pokemon.image} alt="Card image cap" />
+                  <CardImg width="100%" src={pokemon.image} alt={pokemon.name + " image"} />
                 </CardBody>
                 {/* <CardBody style={{backgroundColor: '#FFFFFF', borderRadius: '15px'}}>
                   <CardText style={{color: '#000', fontSize: '12pt'}}>Owned: 0</CardText>

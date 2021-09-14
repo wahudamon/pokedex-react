@@ -4,13 +4,9 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import { Spinner } from "reactstrap";
 
 import './App.css';
 import NavBar from './components/NavBar';
-// import WildPokemonList from './pages/WildPokemonList';
-// import MyPokemonList from './pages/MyPokemonList';
-// import PokemonDetails from "./pages/PokemonDetails";
 
 const WildPokemonList = React.lazy(() => import('./pages/WildPokemonList'));
 const MyPokemonList = React.lazy(() => import('./pages/MyPokemonList'));
@@ -19,7 +15,7 @@ const PokemonDetails = React.lazy(() => import('./pages/PokemonDetails'));
 function App() {
   return(
     <Router>
-      <Suspense fallback={<Spinner children="" />}>
+      <Suspense fallback={<></>}>
       <div>
         <NavBar />
 
