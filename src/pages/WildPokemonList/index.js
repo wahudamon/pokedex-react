@@ -27,13 +27,11 @@ export default function WildPokemonList() {
   const [wildPokemon, getWildPokemon] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const toggleIsLoading = () => setIsLoading(!isLoading);
-
   useEffect(() => {
     const fetching = async () => {
       const res = await getAllPokemon();
       getWildPokemon(res);
-      toggleIsLoading();
+      setIsLoading(false);
     }
 
     fetching();
