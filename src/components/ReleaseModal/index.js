@@ -4,7 +4,7 @@ import {
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
 import { 
   ReleaseMyPokemon
-} from "../../context/MyContext";
+} from "../../context/PokemonContext";
 
 export default function ReleaseModal(props) {
   const [success, setSuccess] = useState(false);

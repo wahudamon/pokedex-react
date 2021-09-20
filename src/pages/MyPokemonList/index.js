@@ -10,7 +10,7 @@ import {
   Button
 } from 'reactstrap';
 import { PokemonColors } from '../../components/PokemonColors';
-import { GetMyPokemonList, MyPokemonProvider } from '../../context/MyContext';
+import { GetMyPokemonList, MyPokemonProvider } from '../../context/PokemonContext';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import ReleaseModal from '../../components/ReleaseModal';

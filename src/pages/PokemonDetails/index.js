@@ -9,7 +9,7 @@ import { getPokemonDetails } from '../../utils/queriesList';
 import PokeballIcon from '../../assets/images/pokeball_icon.png';
 import StatList from '../../components/StatList';
 import CatchingModal from '../../components/CatchingModal';
-import { MyPokemonProvider } from '../../context/MyContext';
+import { MyPokemonProvider } from '../../context/PokemonContext';
 
 export default function PokemonDetails() {
   const [isOpen, setIsOpen] = useState(false);

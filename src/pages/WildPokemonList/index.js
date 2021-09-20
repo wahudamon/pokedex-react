@@ -12,7 +12,7 @@ import {
   Button
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { CountAllMyPokemon, MyPokemonProvider } from '../../context/MyContext';
+import { CountAllMyPokemon, MyPokemonProvider } from '../../context/PokemonContext';
 import SkeletonLoader from '../../components/SkeletonLoader';
 
 const MyPokemonSummaryBadge = () => {

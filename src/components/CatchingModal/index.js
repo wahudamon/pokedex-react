@@ -6,7 +6,7 @@ import { Modal, ModalHeader, ModalBody, ModalFooter, Button, Form, FormGroup, La
 import { 
   AddMyPokemonList,
   GetMyPokemonList 
-} from "../../context/MyContext";
+} from "../../context/PokemonContext";
 
 const generateCaughtPokemon = (nickName, pokemonData) => {
   const caughtPokemon = {
