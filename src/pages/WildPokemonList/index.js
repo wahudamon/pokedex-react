@@ -65,7 +65,7 @@ export default function WildPokemonList() {
               <Button onClick={handleLoadMore} color="secondary">{loadMoreButtonText}</Button>
             </div>
           </Row>
-          <div className="text-center fixed-bottom mb-4">
+          <div className="text-center fixed-bottom mb-3">
             <a href="/my-pokemon" className="btn" style={{backgroundColor: 'gray', color: 'white', borderRadius: '10px'}}>
               My Pokemon 
               <MyPokemonProvider>
