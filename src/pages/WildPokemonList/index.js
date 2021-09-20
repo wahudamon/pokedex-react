@@ -3,13 +3,13 @@ import { useEffect, useState } from 'react';
 import { getAllPokemon } from '../../utils/queriesList';
 import { 
   Card, 
-  //CardText, 
   CardBody,
   CardTitle,
   Row,
   Col,
   CardImg,
   Badge,
+  Button
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { CountAllMyPokemon, MyPokemonProvider } from '../../context/MyContext';
@@ -26,6 +26,11 @@ const MyPokemonSummaryBadge = () => {
 export default function WildPokemonList() {
   const [wildPokemon, getWildPokemon] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const handleLoadMore = async () => {
+    const additionalRes = await getAllPokemon();
+    getWildPokemon([...wildPokemon, ...additionalRes]);
+  }
 
   useEffect(() => {
     const fetching = async () => {
@@ -60,6 +65,9 @@ export default function WildPokemonList() {
               </Link>
             </Col>
           ))}
+            <div className="mb-5" style={{textAlign: 'right'}}>
+              <Button onClick={handleLoadMore} color="secondary">Load More</Button>
+            </div>
           </Row>
           <div className="text-center fixed-bottom mb-4">
             <a href="/my-pokemon" className="btn" style={{backgroundColor: 'gray', color: 'white', borderRadius: '10px'}}>
