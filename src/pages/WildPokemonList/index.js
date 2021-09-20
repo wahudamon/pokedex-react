@@ -2,12 +2,8 @@ import '../../App.css';
 import { useEffect, useState } from 'react';
 import { getAllPokemon } from '../../utils/queriesList';
 import { 
-  Card, 
-  CardBody,
-  CardTitle,
   Row,
   Col,
-  CardImg,
   Badge,
   Button
 } from 'reactstrap';
