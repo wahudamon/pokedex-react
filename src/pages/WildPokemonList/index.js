@@ -26,16 +26,20 @@ const MyPokemonSummaryBadge = () => {
 export default function WildPokemonList() {
   const [wildPokemon, getWildPokemon] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [loadMoreButtonText, setLoadMoreButtonText] = useState('');
 
   const handleLoadMore = async () => {
+    setLoadMoreButtonText('Please Wait...');
     const additionalRes = await getAllPokemon();
     getWildPokemon([...wildPokemon, ...additionalRes]);
+    setLoadMoreButtonText('Load More');
   }
 
   useEffect(() => {
     const fetching = async () => {
       const res = await getAllPokemon();
       getWildPokemon(res);
+      setLoadMoreButtonText('Load More');
       setIsLoading(false);
     }
 
@@ -66,7 +70,7 @@ export default function WildPokemonList() {
             </Col>
           ))}
             <div className="mb-5" style={{textAlign: 'right'}}>
-              <Button onClick={handleLoadMore} color="secondary">Load More</Button>
+              <Button onClick={handleLoadMore} color="secondary">{loadMoreButtonText}</Button>
             </div>
           </Row>
           <div className="text-center fixed-bottom mb-4">
