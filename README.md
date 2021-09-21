@@ -2,11 +2,11 @@
 
 A pokedex-like web app that display a list of Wild Pokemon that you can catch, give a nickname and save as your Pokemon. It also display the details of each pokemon like types, height, weight, stats, and moves. This project was inspired from [react-pokemon](https://github.com/haris0/react-pokemon) that made by [haris0](https://github.com/haris0).
 
-![preview1](../pokedex-react/src/assets/images/screenshot-1.png)
+![preview1](./Preview-1.png)
 
-![preview2](../pokedex-react/src/assets/images/screenshot-2.png)
+![preview2](./Preview-2.png)
 
-![preview3](../pokedex-react/src/assets/images/screenshot-3.png)
+![preview3](./Preview-3.png)
 
 ## Technologies
 
