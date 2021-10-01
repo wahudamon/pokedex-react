@@ -54,13 +54,13 @@ export default function WildPokemonList() {
       {!isLoading && 
         <>
           <Row className="mx-5 my-3 g-3">
-        {wildPokemon.map(pokemon => (
-            <Col key={pokemon.name} sm="3" md="6" lg="3">
-              <Link className="text-decoration-none" to={`/details/${pokemon.name}`}>
-                <WildPokemonCard pokemon={pokemon} />
-              </Link>
-            </Col>
-          ))}
+            {wildPokemon.map(pokemon => (
+              <Col key={pokemon.name} sm="3" md="6" lg="3">
+                <Link className="text-decoration-none" to={`/details/${pokemon.name}`}>
+                  <WildPokemonCard pokemon={pokemon} />
+                </Link>
+              </Col>
+            ))}
             <div className="mb-5" style={{textAlign: 'right'}}>
               <Button onClick={handleLoadMore} color="secondary">{loadMoreButtonText}</Button>
             </div>
