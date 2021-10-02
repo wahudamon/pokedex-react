@@ -20,7 +20,6 @@ export default function NavBar() {
     <div>
       <Navbar color="#fff" light expand="md">
         <NavbarBrand className="mx-4 mb-2" href="/"><img src={PokedexLogo} alt="pokedex logo" /></NavbarBrand>
-        <p>Test Connection to Github</p>
         {/* <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
